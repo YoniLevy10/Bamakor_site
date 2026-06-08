@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="icon" type="image/png" href="favicon.png"/>
   <link rel="apple-touch-icon" href="favicon.png"/>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;900&display=swap" rel="stylesheet"/>
 
   <title>במקור – ניהול ואחזקת נכסים בירושלים</title>
   <meta name="description" content="חברת במקור מתמחה בניהול בנייני מגורים בכל רחבי ירושלים — ניהול ועד בית, ניהול דירות, מגדלים ותיווך נכסים. שקיפות מלאה ושירות בעברית, אנגלית וצרפתית."/>
@@ -32,7 +29,7 @@
       --white: #fff;
     }
     html { scroll-behavior: smooth; }
-    body { font-family: 'Heebo', sans-serif; background: var(--white); color: var(--charcoal); direction: rtl; overflow-x: hidden; }
+    body { font-family: Arial, sans-serif; background: var(--white); color: var(--charcoal); direction: rtl; overflow-x: hidden; }
 
     /* ── CURSOR GLOW (desktop only) ── */
     .cursor-glow {
@@ -142,9 +139,8 @@
     h1 {
       font-family: Arial, sans-serif;
       font-size: clamp(2.8rem, 4.8vw, 4.2rem);
-      font-weight: 900; color: #fff; line-height: 1.08;
+      font-weight: 700; color: #fff; line-height: 1.08;
       margin-bottom: 20px; animation: up .7s .1s ease both;
-      letter-spacing: -.01em;
     }
     h1 em { color: var(--red); font-style: normal; position: relative; }
     h1 em::after {
@@ -265,36 +261,6 @@
     .kpi-val.green { color: #5de87a; }
     .kpi-label { font-size:.65rem;color:rgba(255,255,255,.3);margin-top:2px; }
 
-    /* ── TESTIMONIAL ── */
-    .testimonial { padding: 100px 6%; background: var(--light); }
-    .testimonial-inner { max-width: 760px; margin: 0 auto; text-align: center; }
-    .testimonial-inner .section-h { margin-bottom: 48px; }
-    .tcard {
-      background: var(--white); border: 1px solid var(--border);
-      border-radius: 20px; padding: 48px 52px;
-      position: relative; overflow: hidden;
-      box-shadow: 0 4px 32px rgba(0,0,0,.05);
-    }
-    .tcard::before {
-      content: '"'; font-family: Arial, sans-serif;
-      font-size: 9rem; color: var(--red); opacity: .07;
-      position: absolute; top: -10px; right: 28px; line-height: 1;
-      pointer-events: none;
-    }
-    .tcard-text {
-      font-family: Arial, sans-serif;
-      font-size: 1.2rem; color: var(--charcoal); line-height: 1.75;
-      margin-bottom: 28px; position: relative;
-    }
-    .tcard-author { display: flex; align-items: center; justify-content: center; gap: 14px; }
-    .tcard-avatar {
-      width: 44px; height: 44px; border-radius: 50%;
-      background: var(--red); color: #fff;
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 800; font-size: 1.1rem; flex-shrink: 0;
-    }
-    .tcard-name { font-weight: 700; font-size: .95rem; color: var(--charcoal); }
-    .tcard-role { font-size: .78rem; color: var(--gray); margin-top: 2px; }
 
 
     /* ── HOW IT WORKS ── */
@@ -437,8 +403,6 @@
       .stat:last-child { border-bottom:none; }
       h1 { font-size:2.6rem; }
       .hero-buildings { display:none; }
-      .tcard { padding:32px 24px; }
-      .tcard-text { font-size:1.05rem; }
       .footer-inner { grid-template-columns:1fr; gap:28px; }
     }
   </style>
