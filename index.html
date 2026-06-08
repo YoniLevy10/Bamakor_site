@@ -92,6 +92,15 @@
       display: flex; align-items: center;
       position: relative; overflow: hidden;
     }
+    .hero-photo {
+      position: absolute; inset: 0; z-index: 0;
+      background: url('hero-bg.jpg') center/cover no-repeat;
+      opacity: .22;
+    }
+    .hero-photo::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(180deg, rgba(30,30,30,.4) 0%, rgba(30,30,30,.75) 70%, var(--charcoal) 100%);
+    }
     .hero-grid-bg {
       position: absolute; inset: 0;
       background-image: linear-gradient(rgba(163,18,50,.06) 1px, transparent 1px),
@@ -277,6 +286,36 @@
       .step-line { display:none; }
     }
 
+
+    /* ── JERUSALEM BAND ── */
+    .jeru-band {
+      position: relative; min-height: 420px;
+      display: flex; align-items: center;
+      overflow: hidden;
+    }
+    .jeru-photo {
+      position: absolute; inset: 0; z-index: 0;
+      background: url('jerusalem.jpg') center/cover no-repeat;
+    }
+    .jeru-overlay {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(90deg, rgba(30,30,30,.92) 0%, rgba(30,30,30,.7) 50%, rgba(163,18,50,.35) 100%);
+    }
+    .jeru-content {
+      position: relative; z-index: 2;
+      max-width: 1140px; margin: 0 auto; padding: 80px 6%;
+      width: 100%;
+    }
+    .jeru-title {
+      font-family: Arial, sans-serif; font-size: clamp(1.8rem,3.5vw,2.8rem);
+      font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 14px;
+      max-width: 560px;
+    }
+    .jeru-sub {
+      font-size: 1.05rem; color: rgba(255,255,255,.7); line-height: 1.8;
+      max-width: 480px;
+    }
+
     /* ── CTA ── */
     .cta { background: var(--charcoal); padding: 110px 6%; text-align: center; position: relative; overflow: hidden; }
     .cta-grid-bg { position:absolute;inset:0;background-image:linear-gradient(rgba(163,18,50,.06) 1px,transparent 1px),linear-gradient(90deg,rgba(163,18,50,.06) 1px,transparent 1px);background-size:56px 56px; }
@@ -445,6 +484,7 @@
 
 <!-- HERO -->
 <section class="hero">
+  <div class="hero-photo"></div>
   <div class="mesh"></div>
   <div class="hero-grid-bg"></div>
   <div class="noise"></div>
@@ -582,6 +622,17 @@
         <p>חיבור למערכת הדיגיטלית, והבניין שלכם בידיים טובות.</p>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- JERUSALEM BAND -->
+<section class="jeru-band">
+  <div class="jeru-photo"></div>
+  <div class="jeru-overlay"></div>
+  <div class="jeru-content">
+    <p class="label" style="color:#f08090">ירושלים</p>
+    <h2 class="jeru-title">הבית שלכם, בידיים הנכונות</h2>
+    <p class="jeru-sub">מהעיר העתיקה ועד השכונות החדשות — אנחנו מנהלים נכסים בכל רחבי ירושלים במסירות ובמקצועיות.</p>
   </div>
 </section>
 
