@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>טופס הצעת מחיר לניהול דירה | ש.נ. במקור</title>
+<title>טופס הצעת מחיר לניהול פרויקט | ש.נ. במקור</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body { font-family: Arial, sans-serif; direction: rtl; background: #f4f4f4; color: #3A3A3A; }
@@ -67,8 +67,8 @@ footer a { color: #ccc; }
 </header>
 
 <div class="hero">
-  <h1>הצעת מחיר לניהול דירה</h1>
-  <p>מלאו את הפרטים ונחזור אליכם בהקדם</p>
+  <h1>הצעת מחיר לניהול פרויקט / בניין</h1>
+  <p>שירותי ועד בית מקצועיים — מלאו את הפרטים ונחזור אליכם בהקדם</p>
 </div>
 
 <div class="card">
@@ -97,46 +97,49 @@ footer a { color: #ccc; }
   </div>
 
   <div class="form-group">
-    <label>כתובת הדירה *</label>
-    <input type="text" id="address" placeholder="רחוב, מספר דירה, עיר">
+    <label>כתובת הפרויקט / הבניין *</label>
+    <input type="text" id="address" placeholder="רחוב, מספר, עיר">
   </div>
 
   <div class="row">
     <div class="form-group">
-      <label>גודל הדירה</label>
-      <select id="size">
+      <label>מספר יחידות דיור</label>
+      <select id="units">
         <option value="">בחר...</option>
-        <option>1–2 חדרים</option>
-        <option>3 חדרים</option>
-        <option>4 חדרים</option>
-        <option>5 חדרים ומעלה</option>
+        <option>עד 10 יחידות</option>
+        <option>11–20 יחידות</option>
+        <option>21–40 יחידות</option>
+        <option>41–60 יחידות</option>
+        <option>מעל 60 יחידות</option>
       </select>
     </div>
     <div class="form-group">
-      <label>סוג הניהול הנדרש</label>
-      <select id="type">
+      <label>מצב הוועד כיום</label>
+      <select id="status">
         <option value="">בחר...</option>
-        <option>ניהול שוטף מלא</option>
-        <option>השכרה בלבד</option>
-        <option>תחזוקה ותיקונים</option>
-        <option>ניהול דייר קיים</option>
+        <option>אין ועד בית</option>
+        <option>מעבר מחברה אחרת</option>
+        <option>פרויקט חדש</option>
+        <option>ועד בית קיים שרוצה עזרה</option>
       </select>
     </div>
   </div>
 
   <div class="form-group">
-    <label>הדירה מושכרת כרגע?</label>
-    <select id="rented">
+    <label>שירותים נדרשים</label>
+    <select id="services">
       <option value="">בחר...</option>
-      <option>כן, יש דייר</option>
-      <option>לא, הדירה פנויה</option>
-      <option>בתהליך פינוי</option>
+      <option>ניהול ועד בית מלא</option>
+      <option>גביית דמי ועד בלבד</option>
+      <option>תחזוקה ותיקונים בלבד</option>
+      <option>ניהול קבלנים ופרויקטים</option>
+      <option>חבילה משולבת</option>
     </select>
   </div>
 
   <div class="form-group">
     <label>הערות / שאלות</label>
-    <textarea id="notes" placeholder="כל מידע נוסף שיעזור לנו..."></textarea>
+    <textarea id="notes" placeholder="כל מידע נוסף שיעזור לנו להכין הצעה מדויקת..."></textarea>
   </div>
 
   <button class="btn" onclick="sendForm()">שלח בקשה</button>
@@ -154,7 +157,7 @@ function sendForm() {
   const phone = document.getElementById('phone').value.trim();
   const address = document.getElementById('address').value.trim();
   if (!name || !phone || !address) {
-    alert('נא למלא שם, טלפון וכתובת הדירה');
+    alert('נא למלא שם, טלפון וכתובת הפרויקט');
     return;
   }
   const body = encodeURIComponent(
@@ -162,13 +165,13 @@ function sendForm() {
     'טלפון: ' + phone + '\n' +
     'אימייל: ' + document.getElementById('email').value + '\n' +
     'כתובת: ' + address + '\n' +
-    'גודל דירה: ' + document.getElementById('size').value + '\n' +
-    'סוג ניהול: ' + document.getElementById('type').value + '\n' +
-    'מושכרת: ' + document.getElementById('rented').value + '\n' +
+    'מספר יחידות: ' + document.getElementById('units').value + '\n' +
+    'מצב ועד: ' + document.getElementById('status').value + '\n' +
+    'שירותים: ' + document.getElementById('services').value + '\n' +
     'הערות: ' + document.getElementById('notes').value
   );
   window.location.href = 'mailto:office@bamakor.com?subject=' +
-    encodeURIComponent('בקשת הצעת מחיר - ניהול דירה') + '&body=' + body;
+    encodeURIComponent('בקשת הצעת מחיר - ניהול פרויקט / בניין') + '&body=' + body;
 }
 </script>
 
