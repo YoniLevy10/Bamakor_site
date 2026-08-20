@@ -1,0 +1,19 @@
+Bamakor – project photos intake
+
+Drop client photos here using these exact filenames:
+
+quadra.png              <- פרויקט קוואדרה (מקור חיים 39–43)
+avital-13.png           <- אביטל 13
+beit-lechem-94.png      <- דרך בית לחם 94
+makor-haim-62.png       <- מקור חיים 62
+makor-haim-40.png       <- מקור חיים 40
+efraim-8.png            <- אפרים 8
+rut-3.png               <- רות 3
+elroi-5a.png            <- אלרואי 5א
+reuben-14.png           <- ראובן 14 (MISSING – awaiting client)
+menashe-8.png           <- מנשה 8 (MISSING – awaiting client)
+heletz-12.png           <- חלץ 12 (MISSING – awaiting client)
+heletz-10.png           <- חלץ 10 (MISSING – awaiting client)
+buzaglo-4.png           <- בוזגלו 4 (MISSING – awaiting client)
+
+Preferred: JPG or PNG, landscape ~1600px wide.
