@@ -73,6 +73,32 @@
       if (!key) return;
       el.setAttribute('aria-label', t(lang, key));
     });
+    document.querySelectorAll('[data-i18n-alt]').forEach(function (el) {
+      var key = el.getAttribute('data-i18n-alt');
+      if (!key) return;
+      el.setAttribute('alt', t(lang, key));
+    });
+  }
+
+  function applyAlts(lang) {
+    var rules = [
+      ['img[src*="/assets/brand/logo.png"]', 'alt.logoShort'],
+      ['.brand img[src*="/assets/brand/logo.png"]', 'alt.logo'],
+      ['img[src*="hero-exterior"]', 'alt.hero'],
+      ['img[src*="service-shared"]', 'alt.shared'],
+      ['img[src*="service-apartment"]', 'alt.apartment'],
+      ['img[src*="service-lobby"]', 'alt.lobby'],
+      ['img[src*="service-neighborhood"]', 'alt.neighborhood'],
+      ['img[src*="sara."]', 'alt.sara'],
+      ['img[src*="about-control"]', 'alt.control'],
+      ['.contact-card img[src*="hero-exterior"]', 'alt.contactBuilding']
+    ];
+    rules.forEach(function (rule) {
+      document.querySelectorAll(rule[0]).forEach(function (el) {
+        if (el.hasAttribute('data-i18n-alt')) return;
+        el.setAttribute('alt', t(lang, rule[1]));
+      });
+    });
   }
 
   function applyChrome(lang) {
@@ -381,6 +407,84 @@
         ['.note', 'contact.form.note'],
         ['input[name="service"]', 'contact.form.service', 'value'],
         ['footer .footer-grid > div:first-child p', 'footer.blurb']
+      ],
+      quoteBuilding: [
+        ['.subhero .eyebrow', 'quote.eyebrow'],
+        ['.subhero h1', 'quote.building.h1'],
+        ['.subhero .lead', 'quote.building.lead'],
+        ['.contact-card h2', 'quote.building.card.h2'],
+        ['.contact-card > p:nth-of-type(1)', 'quote.building.card.p'],
+        ['.contact-card a[href="/quote-apartment/"]', 'quote.building.switch'],
+        ['label[for="name"]', 'quote.form.name'],
+        ['label[for="phone"]', 'quote.form.phone'],
+        ['label[for="email"]', 'quote.form.email'],
+        ['label[for="address"]', 'quote.building.address'],
+        ['label[for="message"]', 'quote.building.message'],
+        ['#message', 'quote.building.placeholder', 'placeholder'],
+        ['button[type="submit"]', 'quote.form.submit'],
+        ['.note', 'quote.form.note'],
+        ['input[name="service"]', 'quote.building.service', 'value'],
+        ['footer .footer-grid > div:first-child p', 'footer.blurb']
+      ],
+      quoteApartment: [
+        ['.subhero .eyebrow', 'quote.eyebrow'],
+        ['.subhero h1', 'quote.apartment.h1'],
+        ['.subhero .lead', 'quote.apartment.lead'],
+        ['.contact-card h2', 'quote.apartment.card.h2'],
+        ['.contact-card > p:nth-of-type(1)', 'quote.apartment.card.p'],
+        ['.contact-card a[href="/quote-building/"]', 'quote.apartment.switch'],
+        ['label[for="name"]', 'quote.form.name'],
+        ['label[for="phone"]', 'quote.form.phone'],
+        ['label[for="email"]', 'quote.form.email'],
+        ['label[for="address"]', 'quote.apartment.address'],
+        ['label[for="message"]', 'quote.apartment.message'],
+        ['#message', 'quote.apartment.placeholder', 'placeholder'],
+        ['button[type="submit"]', 'quote.form.submit'],
+        ['.note', 'quote.form.note'],
+        ['input[name="service"]', 'quote.apartment.service', 'value'],
+        ['footer .footer-grid > div:first-child p', 'footer.blurb']
+      ],
+      accessibility: [
+        ['.subhero .eyebrow', 'a11y.eyebrow'],
+        ['.subhero h1', 'a11y.h1'],
+        ['.subhero .lead', 'a11y.lead'],
+        ['.legal h2:nth-of-type(1)', 'a11y.h2.adapt'],
+        ['.legal ul li:nth-child(1)', 'a11y.li1'],
+        ['.legal ul li:nth-child(2)', 'a11y.li2'],
+        ['.legal ul li:nth-child(3)', 'a11y.li3'],
+        ['.legal ul li:nth-child(4)', 'a11y.li4'],
+        ['.legal ul li:nth-child(5)', 'a11y.li5'],
+        ['.legal ul li:nth-child(6)', 'a11y.li6'],
+        ['.legal ul li:nth-child(7)', 'a11y.li7'],
+        ['.legal h2:nth-of-type(2)', 'a11y.h2.current'],
+        ['.legal > p:nth-of-type(1)', 'a11y.current.p'],
+        ['.legal h2:nth-of-type(3)', 'a11y.h2.contact'],
+        ['.legal > p:nth-of-type(2)', 'a11y.contact.p'],
+        ['.legal > p:nth-of-type(4)', 'a11y.closing'],
+        ['footer .footer-grid > div:first-child p', 'footer.blurb']
+      ],
+      privacy: [
+        ['.subhero .eyebrow', 'privacy.eyebrow'],
+        ['.subhero h1', 'privacy.h1'],
+        ['.subhero .lead', 'privacy.lead'],
+        ['.legal h2:nth-of-type(1)', 'privacy.h2.what'],
+        ['.legal > p:nth-of-type(1)', 'privacy.what.p'],
+        ['.legal h2:nth-of-type(2)', 'privacy.h2.how'],
+        ['.legal > p:nth-of-type(2)', 'privacy.how.p'],
+        ['.legal h2:nth-of-type(3)', 'privacy.h2.purpose'],
+        ['.legal > p:nth-of-type(3)', 'privacy.purpose.p'],
+        ['.legal h2:nth-of-type(4)', 'privacy.h2.external'],
+        ['.legal > p:nth-of-type(4)', 'privacy.external.p'],
+        ['.legal h2:nth-of-type(5)', 'privacy.h2.contact'],
+        ['footer .footer-grid > div:first-child p', 'footer.blurb']
+      ],
+      notFound: [
+        ['.subhero .eyebrow', 'notFound.eyebrow'],
+        ['.subhero h1', 'notFound.h1'],
+        ['.subhero .lead', 'notFound.lead'],
+        ['.subhero .btn.primary', 'notFound.home'],
+        ['.subhero .btn.outline', 'notFound.contact'],
+        ['.actions .btn.primary', 'notFound.back']
       ]
     };
 
@@ -390,9 +494,28 @@
         var val = t(lang, item[1]);
         if (item[2] === 'html') el.innerHTML = val;
         else if (item[2] === 'value') el.value = val;
+        else if (item[2] === 'placeholder') el.setAttribute('placeholder', val);
         else el.textContent = val;
       });
     });
+
+    if (page === 'accessibility') {
+      var phoneStrong = document.querySelector('.legal > p:nth-of-type(3) strong:first-child');
+      if (phoneStrong) phoneStrong.textContent = t(lang, 'a11y.phoneLabel');
+      var waStrong = document.querySelector('.legal > p:nth-of-type(3) strong:nth-of-type(2)');
+      if (waStrong) waStrong.textContent = t(lang, 'a11y.waLabel');
+      var waLink = document.querySelector('.legal > p:nth-of-type(3) a[href*="wa.me"]');
+      if (waLink) waLink.textContent = t(lang, 'common.waSend');
+    }
+
+    if (page === 'privacy') {
+      var privacyContact = document.querySelector('.legal > p:nth-of-type(5)');
+      if (privacyContact) {
+        privacyContact.innerHTML =
+          t(lang, 'privacy.contact.p') +
+          ' <a href="tel:+972526026437">052-6026437</a> · <a href="https://wa.me/972526026437">WhatsApp</a>.';
+      }
+    }
   }
 
   function apply(lang) {
@@ -401,6 +524,7 @@
     applyMarked(lang);
     applyChrome(lang);
     applyPageMap(lang);
+    applyAlts(lang);
     ensureLangSwitcher(lang);
     document.dispatchEvent(new CustomEvent('bamakor:langchange', { detail: { lang: lang } }));
   }

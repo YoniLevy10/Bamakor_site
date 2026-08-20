@@ -1,12 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://www.bamakor.com/</loc></url>
-  <url><loc>https://www.bamakor.com/about/</loc></url>
-  <url><loc>https://www.bamakor.com/services/</loc></url>
-  <url><loc>https://www.bamakor.com/projects/</loc></url>
-  <url><loc>https://www.bamakor.com/contact/</loc></url>
-  <url><loc>https://www.bamakor.com/quote-building/</loc></url>
-  <url><loc>https://www.bamakor.com/quote-apartment/</loc></url>
-  <url><loc>https://www.bamakor.com/accessibility/</loc></url>
-  <url><loc>https://www.bamakor.com/privacy/</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://www.bamakor.com/</loc>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.bamakor.com/?lang=he"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bamakor.com/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.bamakor.com/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bamakor.com/"/>
+  </url>
+  <url>
+    <loc>https://www.bamakor.com/about/</loc>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.bamakor.com/about/?lang=he"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bamakor.com/about/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.bamakor.com/about/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bamakor.com/about/"/>
+  </url>
+  <url>
+    <loc>https://www.bamakor.com/services/</loc>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.bamakor.com/services/?lang=he"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bamakor.com/services/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.bamakor.com/services/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bamakor.com/services/"/>
+  </url>
+  <url>
+    <loc>https://www.bamakor.com/projects/</loc>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.bamakor.com/projects/?lang=he"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bamakor.com/projects/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.bamakor.com/projects/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bamakor.com/projects/"/>
+  </url>
+  <url>
+    <loc>https://www.bamakor.com/contact/</loc>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.bamakor.com/contact/?lang=he"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bamakor.com/contact/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.bamakor.com/contact/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bamakor.com/contact/"/>
+  </url>
+  <url>
+    <loc>https://www.bamakor.com/quote-building/</loc>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.bamakor.com/quote-building/?lang=he"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bamakor.com/quote-building/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.bamakor.com/quote-building/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bamakor.com/quote-building/"/>
+  </url>
+  <url>
+    <loc>https://www.bamakor.com/quote-apartment/</loc>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.bamakor.com/quote-apartment/?lang=he"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bamakor.com/quote-apartment/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.bamakor.com/quote-apartment/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bamakor.com/quote-apartment/"/>
+  </url>
+  <url>
+    <loc>https://www.bamakor.com/accessibility/</loc>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.bamakor.com/accessibility/?lang=he"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bamakor.com/accessibility/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.bamakor.com/accessibility/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bamakor.com/accessibility/"/>
+  </url>
+  <url>
+    <loc>https://www.bamakor.com/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="he" href="https://www.bamakor.com/privacy/?lang=he"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.bamakor.com/privacy/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.bamakor.com/privacy/?lang=fr"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.bamakor.com/privacy/"/>
+  </url>
 </urlset>
