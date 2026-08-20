@@ -147,11 +147,16 @@
       ['fr', 'Français']
     ].forEach(function (pair) {
       var a = document.createElement('a');
-      a.href = '#';
+      var href = new URL(window.location.href);
+      href.searchParams.set('lang', pair[0]);
+      a.href = href.pathname + href.search + href.hash;
       a.setAttribute('data-set-lang', pair[0]);
       a.setAttribute('hreflang', pair[0]);
       a.textContent = pair[1];
-      if (pair[0] === lang) a.classList.add('is-active');
+      if (pair[0] === lang) {
+        a.classList.add('is-active');
+        a.setAttribute('aria-current', 'true');
+      }
       a.addEventListener('click', function (e) {
         e.preventDefault();
         setLang(pair[0]);
