@@ -1,19 +1,21 @@
-Bamakor – project photos intake
+Bamakor – project photos
 
-Drop client photos here using these exact filenames:
+Stock building exteriors from Wikimedia Commons (free licenses).
+Replace with real client building photos when available (same filenames).
 
-quadra.png              <- פרויקט קוואדרה (מקור חיים 39–43)
-avital-13.png           <- אביטל 13
-beit-lechem-94.png      <- דרך בית לחם 94
-makor-haim-62.png       <- מקור חיים 62
-makor-haim-40.png       <- מקור חיים 40
-efraim-8.png            <- אפרים 8
-rut-3.png               <- רות 3
-elroi-5a.png            <- אלרואי 5א
-reuben-14.png           <- ראובן 14 (MISSING – awaiting client)
-menashe-8.png           <- מנשה 8 (MISSING – awaiting client)
-heletz-12.png           <- חלץ 12 (MISSING – awaiting client)
-heletz-10.png           <- חלץ 10 (MISSING – awaiting client)
-buzaglo-4.png           <- בוזגלו 4 (MISSING – awaiting client)
+quadra.jpg           <- פרויקט קוואדרה — Yoo Towers 01, Tel Aviv (CC BY-SA 4.0)
+avital-13.jpg        <- אביטל 13 — Be'er Sheva Apartment Building 1 (CC BY-SA 4.0)
+beit-lechem-94.jpg   <- דרך בית לחם 94 — Be'er Sheva Apartment Building 2 (CC BY-SA 4.0)
+makor-haim-62.jpg    <- מקור חיים 62 — PikiWiki 95417 residential buildings at sunset (CC BY 2.5)
+makor-haim-40.jpg    <- מקור חיים 40 — Yoo Tower 2 01, Tel Aviv (CC BY-SA 4.0)
+efraim-8.jpg         <- אפרים 8 — Cosmopolitan on the Park (CC BY-SA 4.0)
+rut-3.jpg            <- רות 3 — Yoo Towers 03, Tel Aviv (CC BY-SA 4.0)
+elroi-5a.jpg         <- אלרואי 5א — Park Tzameret W / W Prime Towers (CC BY-SA 3.0)
+reuben-14.jpg        <- ראובן 14 — Faire Tower 01 (CC BY-SA 4.0)
+menashe-8.jpg        <- מנשה 8 — Nahalat Ganim 02 (CC BY-SA 4.0)
+heletz-12.jpg        <- חלץ 12 — PikiWiki 140014 Bitzaaron towers (CC BY 2.5)
+heletz-10.jpg        <- חלץ 10 — PikiWiki 140015 Bitzaaron towers (CC BY 2.5)
+buzaglo-4.jpg        <- בוזגלו 4 — PikiWiki 140016 Bitzaaron towers (CC BY 2.5)
 
-Preferred: JPG or PNG, landscape ~1600px wide.
+Preferred client replacements: JPG, landscape ~1600px wide.
+Sources: https://commons.wikimedia.org/
