@@ -51,6 +51,19 @@ html[lang="he"] h1,html[lang="he"] h2,html[lang="he"] h3,html[data-lang="he"] h1
 .legal h2{margin-top:1.6em}
 .legal ul{padding-inline-start:1.2em}
 
+/* FAQ — crawlable Q&A for local SEO */
+.faq-list{display:grid;gap:12px;max-width:860px}
+.faq-item{background:#fff;border:1px solid rgba(58,58,58,.12);border-radius:12px;padding:4px 18px}
+.faq-item summary{cursor:pointer;font-weight:700;font-size:1.05rem;padding:14px 0;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";color:var(--red);font-size:1.25rem;font-weight:700;line-height:1}
+.faq-item[open] summary::after{content:"–"}
+.faq-item p{margin:0 0 16px;color:#4a5158;line-height:1.65}
+.faq-item a{color:var(--red);text-decoration:underline;text-underline-offset:2px}
+.section.dark .faq-item{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.14)}
+.section.dark .faq-item p{color:rgba(255,255,255,.82)}
+.section.dark .faq-item a{color:#fff}
+
 /* Mobile UI fixes: logo, contrast, founder, WhatsApp */
 .brand img{flex-shrink:0}
 @media(max-width:900px){
