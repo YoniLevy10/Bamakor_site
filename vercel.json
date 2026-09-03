@@ -1,4 +1,140 @@
 {
   "trailingSlash": true,
-  "cleanUrls": true
+  "cleanUrls": true,
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/%D7%98%D7%95%D7%A4%D7%A1-%D7%94%D7%A6%D7%A2%D7%AA-%D7%9E%D7%97%D7%99%D7%A8-%D7%9C%D7%A0%D7%99%D7%94%D7%95%D7%9C-%D7%91%D7%A0%D7%99%D7%99%D7%9F",
+      "destination": "/quote-building/",
+      "permanent": true
+    },
+    {
+      "source": "/%D7%98%D7%95%D7%A4%D7%A1-%D7%94%D7%A6%D7%A2%D7%AA-%D7%9E%D7%97%D7%99%D7%A8-%D7%9C%D7%A0%D7%99%D7%94%D7%95%D7%9C-%D7%91%D7%A0%D7%99%D7%99%D7%9F/",
+      "destination": "/quote-building/",
+      "permanent": true
+    },
+    {
+      "source": "/%D7%98%D7%95%D7%A4%D7%A1-%D7%94%D7%A6%D7%A2%D7%AA-%D7%9E%D7%97%D7%99%D7%A8-%D7%9C%D7%A0%D7%99%D7%94%D7%95%D7%9C-%D7%93%D7%99%D7%A8%D7%94",
+      "destination": "/quote-apartment/",
+      "permanent": true
+    },
+    {
+      "source": "/%D7%98%D7%95%D7%A4%D7%A1-%D7%94%D7%A6%D7%A2%D7%AA-%D7%9E%D7%97%D7%99%D7%A8-%D7%9C%D7%A0%D7%99%D7%94%D7%95%D7%9C-%D7%93%D7%99%D7%A8%D7%94/",
+      "destination": "/quote-apartment/",
+      "permanent": true
+    },
+    {
+      "source": "/טופס-הצעת-מחיר-לניהול-בניין",
+      "destination": "/quote-building/",
+      "permanent": true
+    },
+    {
+      "source": "/טופס-הצעת-מחיר-לניהול-בניין/",
+      "destination": "/quote-building/",
+      "permanent": true
+    },
+    {
+      "source": "/טופס-הצעת-מחיר-לניהול-דירה",
+      "destination": "/quote-apartment/",
+      "permanent": true
+    },
+    {
+      "source": "/טופס-הצעת-מחיר-לניהול-דירה/",
+      "destination": "/quote-apartment/",
+      "permanent": true
+    },
+    {
+      "source": "/ניהול-ועד-בית",
+      "destination": "/services/",
+      "permanent": true
+    },
+    {
+      "source": "/ניהול-ועד-בית/",
+      "destination": "/services/",
+      "permanent": true
+    },
+    {
+      "source": "/ניהול-דירות",
+      "destination": "/services/",
+      "permanent": true
+    },
+    {
+      "source": "/ניהול-דירות/",
+      "destination": "/services/",
+      "permanent": true
+    },
+    {
+      "source": "/ניהול-מגדלי-מגורים",
+      "destination": "/services/",
+      "permanent": true
+    },
+    {
+      "source": "/ניהול-מגדלי-מגורים/",
+      "destination": "/services/",
+      "permanent": true
+    },
+    {
+      "source": "/properties",
+      "destination": "/services/",
+      "permanent": true
+    },
+    {
+      "source": "/properties/",
+      "destination": "/services/",
+      "permanent": true
+    },
+    {
+      "source": "/feed",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/feed/",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/wp-admin",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/wp-admin/(.*)",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/wp-login.php",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/xmlrpc.php",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
 }
