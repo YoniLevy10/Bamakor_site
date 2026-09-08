@@ -30,30 +30,20 @@
     if (!page) return;
     var titleKey = 'meta.' + page + '.title';
     var descKey = 'meta.' + page + '.desc';
-    var hasTitle = window.BAMAKOR_I18N && window.BAMAKOR_I18N[lang] && window.BAMAKOR_I18N[lang][titleKey];
-    var hasDesc = window.BAMAKOR_I18N && window.BAMAKOR_I18N[lang] && window.BAMAKOR_I18N[lang][descKey];
-    if (hasTitle) {
+    if (window.BAMAKOR_I18N && window.BAMAKOR_I18N[lang] && window.BAMAKOR_I18N[lang][titleKey]) {
       document.title = t(lang, titleKey);
     }
     var desc = document.querySelector('meta[name="description"]');
-    if (desc && hasDesc) {
+    if (desc && window.BAMAKOR_I18N[lang] && window.BAMAKOR_I18N[lang][descKey]) {
       desc.setAttribute('content', t(lang, descKey));
     }
     var ogTitle = document.querySelector('meta[property="og:title"]');
-    if (ogTitle && hasTitle) {
+    if (ogTitle && window.BAMAKOR_I18N[lang] && window.BAMAKOR_I18N[lang][titleKey]) {
       ogTitle.setAttribute('content', t(lang, titleKey));
     }
     var ogDesc = document.querySelector('meta[property="og:description"]');
-    if (ogDesc && hasDesc) {
+    if (ogDesc && window.BAMAKOR_I18N[lang] && window.BAMAKOR_I18N[lang][descKey]) {
       ogDesc.setAttribute('content', t(lang, descKey));
-    }
-    var twTitle = document.querySelector('meta[name="twitter:title"]');
-    if (twTitle && hasTitle) {
-      twTitle.setAttribute('content', t(lang, titleKey));
-    }
-    var twDesc = document.querySelector('meta[name="twitter:description"]');
-    if (twDesc && hasDesc) {
-      twDesc.setAttribute('content', t(lang, descKey));
     }
   }
 
