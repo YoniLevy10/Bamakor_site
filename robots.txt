@@ -1,4 +1,9 @@
 User-agent: *
 Allow: /
 
+# Block leftover WordPress / junk paths if requested
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /xmlrpc.php
+
 Sitemap: https://www.bamakor.com/sitemap.xml
