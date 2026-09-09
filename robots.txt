@@ -1,7 +1,10 @@
 User-agent: *
 Allow: /
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /xmlrpc.php
 
-# Explicitly allow major AI crawlers (GEO)
+# Allow major AI crawlers for GEO / LLM discovery
 User-agent: GPTBot
 Allow: /
 
@@ -11,7 +14,7 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-User-agent: Anthropic-AI
+User-agent: anthropic-ai
 Allow: /
 
 User-agent: ClaudeBot
@@ -29,11 +32,5 @@ Allow: /
 User-agent: CCBot
 Allow: /
 
-# Block leftover WordPress / junk paths if requested
-User-agent: *
-Disallow: /wp-admin/
-Disallow: /wp-login.php
-Disallow: /xmlrpc.php
-
 Sitemap: https://www.bamakor.com/sitemap.xml
-# LLM context file: https://www.bamakor.com/llms.txt
+# LLM context: https://www.bamakor.com/llms.txt
