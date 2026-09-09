@@ -1,0 +1,39 @@
+# במקור (Bamakor)
+
+> ש.נ. במקור ניהול ואחזקת נכסים בע״מ — חברת ניהול ועד בית, ניהול דירות ותחזוקת נכסים בירושלים, עם התמחות במקור חיים, בקעה וקטמון.
+
+Website: https://www.bamakor.com/
+Phone: +972-52-602-6437
+Email: office@bamakor.com
+Location: Jerusalem, Israel
+Languages: Hebrew, English, French
+
+## About
+
+Bamakor provides professional residential building management (vaad bayit), apartment management for investors, residential tower operations, and local brokerage support in Jerusalem.
+
+Founder / managing director: שרה נבות (Sara Navot)
+
+## Services
+
+- Building committee management (ניהול ועד בית): budgeting, collections, cleaning, maintenance, vendor coordination
+- Apartment management (ניהול דירות): tenant communication, maintenance, investor-facing operations
+- Residential tower management (ניהול מגדלי מגורים): complex systems, shared spaces, operations teams
+- Brokerage (תיווך נכסים): rental and sale support in Makor Haim, Bakaa, and Katamon
+
+## Priority pages
+
+- [Home](https://www.bamakor.com/): overview of Bamakor property management in Jerusalem
+- [Services](https://www.bamakor.com/services/): full service details
+- [About](https://www.bamakor.com/about/): company and approach
+- [Projects](https://www.bamakor.com/projects/): buildings currently managed
+- [Contact](https://www.bamakor.com/contact/): phone, WhatsApp, email, contact form
+- [Quote — building](https://www.bamakor.com/quote-building/): request a building management quote
+- [Quote — apartment](https://www.bamakor.com/quote-apartment/): request an apartment management quote
+- [Accessibility](https://www.bamakor.com/accessibility/)
+- [Privacy](https://www.bamakor.com/privacy/)
+
+## Optional
+
+- Sitemap: https://www.bamakor.com/sitemap.xml
+- Robots: https://www.bamakor.com/robots.txt

@@ -1,7 +1,7 @@
 window.BAMAKOR_I18N = {
   he: {
-    "meta.home.title": "ניהול ועד בית בירושלים | במקור – ניהול נכסים",
-    "meta.home.desc": "חברת ניהול ועד בית וניהול נכסים בירושלים — מקור חיים, בקעה וקטמון. שקיפות, תחזוקה ושירות אישי לדיירים ולבעלי דירות.",
+    "meta.home.title": "ניהול ועד בית ואחזקת נכסים בירושלים | במקור ניהול נכסים",
+    "meta.home.desc": "ניהול מקצועי של ועד בית ואחזקת נכסים בירושלים — מקור חיים, בקעה וקטמון. שקיפות, תחזוקה שוטפת ושירות אישי לדיירים ולבעלי דירות.",
     "meta.about.title": "אודות במקור | חברת ניהול נכסים בירושלים",
     "meta.about.desc": "הכירו את ש.נ. במקור בניהול שרה נבות — חברת ניהול ועד בית וניהול נכסים בירושלים, עם שקיפות, אמינות ושירות בשלוש שפות.",
     "meta.services.title": "ניהול ועד בית ודירות בירושלים | שירותי במקור",
@@ -304,8 +304,8 @@ window.BAMAKOR_I18N = {
     "alt.contactBuilding": "בניין מגורים בירושלים",
   },
   en: {
-    "meta.home.title": "Building Committee Management in Jerusalem | Bamakor",
-    "meta.home.desc": "Professional building committee and property management in Jerusalem — Makor Haim, Bakaa and Katamon. Transparent operations and personal service for residents and owners.",
+    "meta.home.title": "Building & Property Management Jerusalem | Bamakor",
+    "meta.home.desc": "Professional building committee and property management in Jerusalem — Makor Haim, Bakaa and Katamon. Transparent operations, maintenance, and personal service for residents and owners.",
     "meta.about.title": "About Bamakor | Property Management in Jerusalem",
     "meta.about.desc": "Meet S.N. Bamakor, led by Sara Navot — building committee and property management in Jerusalem with transparency, reliability and service in three languages.",
     "meta.services.title": "Building & Apartment Management in Jerusalem | Bamakor",
@@ -608,8 +608,8 @@ window.BAMAKOR_I18N = {
     "alt.contactBuilding": "Residential building in Jerusalem",
   },
   fr: {
-    "meta.home.title": "Gestion de comité d’immeuble à Jérusalem | Bamakor",
-    "meta.home.desc": "Gestion professionnelle de comités d’immeuble et de biens à Jérusalem — Makor Haim, Bakaa et Katamon. Transparence, entretien et service personnalisé.",
+    "meta.home.title": "Gestion immeuble & biens à Jérusalem | Bamakor",
+    "meta.home.desc": "Gestion professionnelle de comités d’immeuble et de biens à Jérusalem — Makor Haim, Bakaa et Katamon. Transparence, entretien et service personnalisé pour résidents et propriétaires.",
     "meta.about.title": "À propos de Bamakor | Gestion immobilière à Jérusalem",
     "meta.about.desc": "Découvrez S.N. Bamakor, dirigée par Sara Navot — gestion de comités d’immeuble et de biens à Jérusalem, avec transparence et service en trois langues.",
     "meta.services.title": "Gestion d’immeubles et d’appartements à Jérusalem | Bamakor",
