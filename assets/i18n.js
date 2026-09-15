@@ -526,6 +526,73 @@
     }
   }
 
+  function loadTranslations(done) {
+    if (window.BAMAKOR_I18N) {
+      done();
+      return;
+    }
+    if (window.__bamakorI18nLoading) {
+      window.__bamakorI18nLoading.push(done);
+      return;
+    }
+    window.__bamakorI18nLoading = [done];
+    var s = document.createElement('script');
+    s.src = '/assets/translations.js';
+    s.async = true;
+    s.onload = function () {
+      var q = window.__bamakorI18nLoading || [];
+      window.__bamakorI18nLoading = null;
+      q.forEach(function (fn) {
+        try {
+          fn();
+        } catch (e) {}
+      });
+    };
+    s.onerror = function () {
+      window.__bamakorI18nLoading = null;
+      done();
+    };
+    document.head.appendChild(s);
+  }
+
+  function ensureLangSwitcherFallback(lang) {
+    document.querySelectorAll('.lang-switch').forEach(function (el) {
+      el.remove();
+    });
+    function make(extraClass) {
+      var nav = document.createElement('nav');
+      nav.className = 'lang-switch' + (extraClass ? ' ' + extraClass : '');
+      nav.setAttribute('aria-label', 'Language');
+      [
+        ['he', 'עברית'],
+        ['en', 'English'],
+        ['fr', 'Français']
+      ].forEach(function (pair) {
+        var a = document.createElement('a');
+        var href = new URL(window.location.href);
+        href.searchParams.set('lang', pair[0]);
+        a.href = href.pathname + href.search + href.hash;
+        a.setAttribute('data-set-lang', pair[0]);
+        a.setAttribute('hreflang', pair[0]);
+        a.textContent = pair[1];
+        if (pair[0] === lang) {
+          a.classList.add('is-active');
+          a.setAttribute('aria-current', 'true');
+        }
+        a.addEventListener('click', function (e) {
+          e.preventDefault();
+          setLang(pair[0]);
+        });
+        nav.appendChild(a);
+      });
+      return nav;
+    }
+    var actions = document.querySelector('.actions');
+    if (actions) actions.insertBefore(make(), actions.firstChild);
+    var mobile = document.querySelector('.mobile-links');
+    if (mobile) mobile.appendChild(make('lang-switch-mobile'));
+  }
+
   function apply(lang) {
     setDocumentLang(lang);
     applyMeta(lang);
@@ -543,7 +610,9 @@
     var url = new URL(window.location.href);
     url.searchParams.set('lang', lang);
     window.history.replaceState({}, '', url);
-    apply(lang);
+    loadTranslations(function () {
+      apply(lang);
+    });
   }
 
   window.BamakorI18n = {
@@ -556,6 +625,24 @@
   };
 
   document.addEventListener('DOMContentLoaded', function () {
-    apply(getLang());
+    var lang = getLang();
+    // Hebrew is already in the HTML — skip 72KB translations.js on first paint.
+    if (lang === 'he' && !window.BAMAKOR_I18N) {
+      setDocumentLang('he');
+      ensureLangSwitcherFallback('he');
+      // Prefetch translations after idle so language switching stays snappy.
+      var prefetch = function () {
+        loadTranslations(function () {});
+      };
+      if ('requestIdleCallback' in window) {
+        requestIdleCallback(prefetch, { timeout: 4000 });
+      } else {
+        setTimeout(prefetch, 2000);
+      }
+      return;
+    }
+    loadTranslations(function () {
+      apply(lang);
+    });
   });
 })();

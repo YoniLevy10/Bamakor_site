@@ -2,17 +2,24 @@ document.addEventListener('DOMContentLoaded', function () {
   var cfg = window.BAMAKOR_CONFIG || {};
   var gaId = (cfg.gaMeasurementId || '').trim();
   if (gaId) {
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      window.dataLayer.push(arguments);
+    var bootGa = function () {
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        window.dataLayer.push(arguments);
+      }
+      window.gtag = gtag;
+      gtag('js', new Date());
+      gtag('config', gaId);
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(gaId);
+      document.head.appendChild(s);
+    };
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(bootGa, { timeout: 3500 });
+    } else {
+      setTimeout(bootGa, 1500);
     }
-    window.gtag = gtag;
-    gtag('js', new Date());
-    gtag('config', gaId);
-    var s = document.createElement('script');
-    s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(gaId);
-    document.head.appendChild(s);
   }
 
   var header = document.querySelector('header');
