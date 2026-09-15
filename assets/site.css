@@ -21,8 +21,8 @@ html[dir=ltr] .hero-badge{right:auto;left:22px}
 @media(max-width:580px){.actions .lang-switch{display:none}.mobile-links .lang-switch,header .lang-switch-mobile{display:flex}.lang-switch{gap:12px;font-size:14px}html[dir=ltr] .hero-badge{left:16px;right:16px}}
 
 /* Brand typography */
-h1,h2,h3,.hero-copy h1,.subhero h1{font-family:"Source Serif 4","Assistant",Georgia,serif;letter-spacing:-.02em}
-html[lang="he"] h1,html[lang="he"] h2,html[lang="he"] h3,html[data-lang="he"] h1,html[data-lang="he"] h2,html[data-lang="he"] h3{font-family:"Assistant","Source Serif 4",Georgia,serif;letter-spacing:0}
+h1,h2,h3,.hero-copy h1,.subhero h1{font-family:"Assistant",Georgia,serif;letter-spacing:-.02em;font-weight:800}
+html[lang="he"] h1,html[lang="he"] h2,html[lang="he"] h3,html[data-lang="he"] h1,html[data-lang="he"] h2,html[data-lang="he"] h3{font-family:"Assistant",Georgia,serif;letter-spacing:0}
 .eyebrow,.btn,.menu a,.lang-switch,label,button{font-family:"Assistant","Helvetica Neue",Arial,sans-serif}
 
 /* Focus & keyboard a11y */
