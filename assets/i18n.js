@@ -11,11 +11,22 @@
     return 'he';
   }
 
+  function hasPack() {
+    return !!(window.BAMAKOR_I18N && (window.BAMAKOR_I18N.he || window.BAMAKOR_I18N.en || window.BAMAKOR_I18N.fr));
+  }
+
+  // Returns translated string, or null when missing — never the raw key.
+  // Callers must keep existing DOM text when null so HTML Hebrew stays intact.
   function t(lang, key) {
     var pack = (window.BAMAKOR_I18N && window.BAMAKOR_I18N[lang]) || {};
     if (pack[key] != null) return pack[key];
     var he = (window.BAMAKOR_I18N && window.BAMAKOR_I18N.he) || {};
-    return he[key] != null ? he[key] : key;
+    return he[key] != null ? he[key] : null;
+  }
+
+  function tOr(lang, key, fallback) {
+    var val = t(lang, key);
+    return val != null ? val : fallback;
   }
 
   function setDocumentLang(lang) {
@@ -61,32 +72,44 @@
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       var key = el.getAttribute('data-i18n');
       if (!key) return;
-      el.textContent = t(lang, key);
+      var val = t(lang, key);
+      if (val == null) return;
+      el.textContent = val;
     });
     document.querySelectorAll('[data-i18n-html]').forEach(function (el) {
       var key = el.getAttribute('data-i18n-html');
       if (!key) return;
-      el.innerHTML = t(lang, key);
+      var val = t(lang, key);
+      if (val == null) return;
+      el.innerHTML = val;
     });
     document.querySelectorAll('[data-i18n-placeholder]').forEach(function (el) {
       var key = el.getAttribute('data-i18n-placeholder');
       if (!key) return;
-      el.setAttribute('placeholder', t(lang, key));
+      var val = t(lang, key);
+      if (val == null) return;
+      el.setAttribute('placeholder', val);
     });
     document.querySelectorAll('[data-i18n-value]').forEach(function (el) {
       var key = el.getAttribute('data-i18n-value');
       if (!key) return;
-      el.value = t(lang, key);
+      var val = t(lang, key);
+      if (val == null) return;
+      el.value = val;
     });
     document.querySelectorAll('[data-i18n-aria]').forEach(function (el) {
       var key = el.getAttribute('data-i18n-aria');
       if (!key) return;
-      el.setAttribute('aria-label', t(lang, key));
+      var val = t(lang, key);
+      if (val == null) return;
+      el.setAttribute('aria-label', val);
     });
     document.querySelectorAll('[data-i18n-alt]').forEach(function (el) {
       var key = el.getAttribute('data-i18n-alt');
       if (!key) return;
-      el.setAttribute('alt', t(lang, key));
+      var val = t(lang, key);
+      if (val == null) return;
+      el.setAttribute('alt', val);
     });
   }
 
@@ -106,77 +129,91 @@
     rules.forEach(function (rule) {
       document.querySelectorAll(rule[0]).forEach(function (el) {
         if (el.hasAttribute('data-i18n-alt')) return;
-        el.setAttribute('alt', t(lang, rule[1]));
+        var val = t(lang, rule[1]);
+        if (val == null) return;
+        el.setAttribute('alt', val);
       });
     });
   }
 
+  function setTextIfTranslated(el, lang, key) {
+    var val = t(lang, key);
+    if (val == null || !el) return;
+    el.textContent = val;
+  }
+
+  function setAttrIfTranslated(el, attr, lang, key) {
+    var val = t(lang, key);
+    if (val == null || !el) return;
+    el.setAttribute(attr, val);
+  }
+
   function applyChrome(lang) {
     document.querySelectorAll('.menu a[href="/about/"], .mobile-links a[href="/about/"], footer a[href="/about/"]').forEach(function (el) {
-      el.textContent = t(lang, 'nav.about');
+      setTextIfTranslated(el, lang, 'nav.about');
     });
     document.querySelectorAll('.menu a[href="/services/"], .mobile-links a[href="/services/"], footer a[href="/services/"]').forEach(function (el) {
-      el.textContent = t(lang, 'nav.services');
+      setTextIfTranslated(el, lang, 'nav.services');
     });
     document.querySelectorAll('.menu a[href="/projects/"], .mobile-links a[href="/projects/"], footer a[href="/projects/"]').forEach(function (el) {
-      el.textContent = t(lang, 'nav.projects');
+      setTextIfTranslated(el, lang, 'nav.projects');
     });
     document.querySelectorAll('.menu a[href="/contact/"], .mobile-links a[href="/contact/"], footer a[href="/contact/"]').forEach(function (el) {
-      el.textContent = t(lang, 'nav.contact');
+      setTextIfTranslated(el, lang, 'nav.contact');
     });
     document.querySelectorAll('.actions a.btn.primary[href="/quote-building/"]').forEach(function (el) {
-      el.textContent = t(lang, 'nav.quote');
+      setTextIfTranslated(el, lang, 'nav.quote');
     });
     document.querySelectorAll('.mobile-links a[href="/quote-building/"]').forEach(function (el) {
-      el.textContent = t(lang, 'nav.quoteFull');
+      setTextIfTranslated(el, lang, 'nav.quoteFull');
     });
     document.querySelectorAll('.mobile-links a[href^="tel:"]').forEach(function (el) {
       if (el.classList.contains('btn')) return;
-      el.textContent = t(lang, 'nav.call');
+      setTextIfTranslated(el, lang, 'nav.call');
     });
     document.querySelectorAll('a.skip').forEach(function (el) {
-      el.textContent = t(lang, 'skip');
+      setTextIfTranslated(el, lang, 'skip');
     });
     document.querySelectorAll('.topbar .container > span:first-child').forEach(function (el) {
-      el.textContent = t(lang, 'topbar.tagline');
+      setTextIfTranslated(el, lang, 'topbar.tagline');
     });
     document.querySelectorAll('footer .footer-grid h4').forEach(function (el, idx) {
       if (idx === 0) {
-        el.textContent = t(lang, 'footer.nav');
+        setTextIfTranslated(el, lang, 'footer.nav');
         return;
       }
       var box = el.parentElement;
       if (box && box.querySelector('a[href="/accessibility/"], a[href="/privacy/"]')) {
-        el.textContent = t(lang, 'footer.info');
+        setTextIfTranslated(el, lang, 'footer.info');
       } else {
-        el.textContent = t(lang, 'footer.contact');
+        setTextIfTranslated(el, lang, 'footer.contact');
       }
     });
     document.querySelectorAll('footer a[href="/accessibility/"]').forEach(function (el) {
-      el.textContent = t(lang, 'footer.accessibility');
+      setTextIfTranslated(el, lang, 'footer.accessibility');
     });
     document.querySelectorAll('footer a[href="/privacy/"]').forEach(function (el) {
-      el.textContent = t(lang, 'footer.privacy');
+      setTextIfTranslated(el, lang, 'footer.privacy');
     });
     document.querySelectorAll('.footer-bottom').forEach(function (el) {
-      el.textContent = t(lang, 'footer.rights');
+      setTextIfTranslated(el, lang, 'footer.rights');
     });
     document.querySelectorAll('nav.menu').forEach(function (el) {
-      el.setAttribute('aria-label', t(lang, 'nav.main'));
+      setAttrIfTranslated(el, 'aria-label', lang, 'nav.main');
     });
     document.querySelectorAll('nav.mobile-links').forEach(function (el) {
-      el.setAttribute('aria-label', t(lang, 'nav.mobile'));
+      setAttrIfTranslated(el, 'aria-label', lang, 'nav.mobile');
     });
     document.querySelectorAll('.menu-toggle').forEach(function (el) {
       var open = document.querySelector('header') && document.querySelector('header').classList.contains('menu-open');
-      el.setAttribute('aria-label', t(lang, open ? 'nav.menuClose' : 'nav.menuOpen'));
+      setAttrIfTranslated(el, 'aria-label', lang, open ? 'nav.menuClose' : 'nav.menuOpen');
     });
   }
 
   function buildLangSwitcher(lang, extraClass) {
     var nav = document.createElement('nav');
     nav.className = 'lang-switch' + (extraClass ? ' ' + extraClass : '');
-    nav.setAttribute('aria-label', t(lang, 'lang.label'));
+    nav.setAttribute('aria-label', tOr(lang, 'lang.label', 'Language'));
     [
       ['he', 'עברית'],
       ['en', 'English'],
@@ -500,6 +537,7 @@
       var nodes = document.querySelectorAll(item[0]);
       nodes.forEach(function (el) {
         var val = t(lang, item[1]);
+        if (val == null) return;
         if (item[2] === 'html') el.innerHTML = val;
         else if (item[2] === 'value') el.value = val;
         else if (item[2] === 'placeholder') el.setAttribute('placeholder', val);
@@ -509,18 +547,19 @@
 
     if (page === 'accessibility') {
       var phoneStrong = document.querySelector('.legal > p:nth-of-type(3) strong:first-child');
-      if (phoneStrong) phoneStrong.textContent = t(lang, 'a11y.phoneLabel');
+      setTextIfTranslated(phoneStrong, lang, 'a11y.phoneLabel');
       var waStrong = document.querySelector('.legal > p:nth-of-type(3) strong:nth-of-type(2)');
-      if (waStrong) waStrong.textContent = t(lang, 'a11y.waLabel');
+      setTextIfTranslated(waStrong, lang, 'a11y.waLabel');
       var waLink = document.querySelector('.legal > p:nth-of-type(3) a[href*="wa.me"]');
-      if (waLink) waLink.textContent = t(lang, 'common.waSend');
+      setTextIfTranslated(waLink, lang, 'common.waSend');
     }
 
     if (page === 'privacy') {
       var privacyContact = document.querySelector('.legal > p:nth-of-type(5)');
-      if (privacyContact) {
+      var privacyContactText = t(lang, 'privacy.contact.p');
+      if (privacyContact && privacyContactText != null) {
         privacyContact.innerHTML =
-          t(lang, 'privacy.contact.p') +
+          privacyContactText +
           ' <a href="tel:+972526026437">052-6026437</a> · <a href="https://wa.me/972526026437">WhatsApp</a>.';
       }
     }
@@ -549,8 +588,14 @@
       });
     };
     s.onerror = function () {
+      var q = window.__bamakorI18nLoading || [];
       window.__bamakorI18nLoading = null;
-      done();
+      // Still invoke callbacks so UI can keep Hebrew HTML instead of hanging.
+      q.forEach(function (fn) {
+        try {
+          fn();
+        } catch (e) {}
+      });
     };
     document.head.appendChild(s);
   }
@@ -595,6 +640,11 @@
 
   function apply(lang) {
     setDocumentLang(lang);
+    // Without the pack, leave server-rendered Hebrew in place (never show raw keys).
+    if (!hasPack()) {
+      ensureLangSwitcherFallback(lang);
+      return;
+    }
     applyMeta(lang);
     applyMarked(lang);
     applyChrome(lang);
@@ -619,26 +669,26 @@
     getLang: getLang,
     setLang: setLang,
     t: function (key) {
-      return t(getLang(), key);
+      return tOr(getLang(), key, key);
     },
     apply: apply
   };
 
   document.addEventListener('DOMContentLoaded', function () {
     var lang = getLang();
-    // Hebrew is already in the HTML — skip 72KB translations.js on first paint.
-    if (lang === 'he' && !window.BAMAKOR_I18N) {
+    // translations.js is loaded via <script defer> before this runs.
+    // If the pack is already present, apply immediately for the active language.
+    if (hasPack()) {
+      apply(lang);
+      return;
+    }
+    // Hebrew HTML is already correct — show it while we try to load the pack.
+    if (lang === 'he') {
       setDocumentLang('he');
       ensureLangSwitcherFallback('he');
-      // Prefetch translations after idle so language switching stays snappy.
-      var prefetch = function () {
-        loadTranslations(function () {});
-      };
-      if ('requestIdleCallback' in window) {
-        requestIdleCallback(prefetch, { timeout: 4000 });
-      } else {
-        setTimeout(prefetch, 2000);
-      }
+      loadTranslations(function () {
+        if (hasPack()) apply('he');
+      });
       return;
     }
     loadTranslations(function () {
