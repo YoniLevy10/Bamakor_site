@@ -3,18 +3,16 @@ Bamakor – project photos
 Stock building exteriors from Wikimedia Commons (free licenses).
 Replace with real client building photos when available (same filenames).
 
-quadra.jpg           <- פרויקט קוואדרה — Yoo Towers 01, Tel Aviv (CC BY-SA 4.0)
+quadra.png           <- פרויקט קוואדרה (מקור חיים 39–43) וגם מקור חיים 40 — תמונת לקוח
 avital-13.jpg        <- אביטל 13 — Be'er Sheva Apartment Building 1 (CC BY-SA 4.0)
 beit-lechem-94.jpg   <- דרך בית לחם 94 — Be'er Sheva Apartment Building 2 (CC BY-SA 4.0)
 makor-haim-62.jpg    <- מקור חיים 62 — PikiWiki 95417 residential buildings at sunset (CC BY 2.5)
-makor-haim-40.jpg    <- מקור חיים 40 — Yoo Tower 2 01, Tel Aviv (CC BY-SA 4.0)
 efraim-8.jpg         <- אפרים 8 — Cosmopolitan on the Park (CC BY-SA 4.0)
 rut-3.jpg            <- רות 3 — Yoo Towers 03, Tel Aviv (CC BY-SA 4.0)
 elroi-5a.jpg         <- אלרואי 5א — Park Tzameret W / W Prime Towers (CC BY-SA 3.0)
 reuben-14.jpg        <- ראובן 14 — Faire Tower 01 (CC BY-SA 4.0)
 menashe-8.jpg        <- מנשה 8 — Nahalat Ganim 02 (CC BY-SA 4.0)
-heletz-12.jpg        <- חלץ 12 — PikiWiki 140014 Bitzaaron towers (CC BY 2.5)
-heletz-10.jpg        <- חלץ 10 — PikiWiki 140015 Bitzaaron towers (CC BY 2.5)
+heletz.jpg           <- חלץ 12 וחלץ 10 — תמונת לקוח (אותה תמונה לשני הכרטיסים)
 buzaglo-4.jpg        <- בוזגלו 4 — PikiWiki 140016 Bitzaaron towers (CC BY 2.5)
 
 Preferred client replacements: JPG, landscape ~1600px wide.

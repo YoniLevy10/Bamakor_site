@@ -122,6 +122,7 @@
       ['img[src*="service-apartment"]', 'alt.apartment'],
       ['img[src*="service-lobby"]', 'alt.lobby'],
       ['img[src*="service-neighborhood"]', 'alt.neighborhood'],
+      ['#brokerage img[src*="quadra.png"]', 'alt.quadra'],
       ['img[src*="sara."]', 'alt.sara'],
       ['img[src*="about-control"]', 'alt.control'],
       ['.contact-card img[src*="hero-exterior"]', 'alt.contactBuilding']
