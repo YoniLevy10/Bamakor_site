@@ -15,7 +15,7 @@ elroi-5a.jpg         <- אלרואי 5א — Park Tzameret W / W Prime Towers (C
 reuben-14.jpg        <- ראובן 14 — Faire Tower 01 (CC BY-SA 4.0)
 menashe-8.jpg        <- מנשה 8 — Nahalat Ganim 02 (CC BY-SA 4.0)
 heletz.jpg           <- חלץ 12 וחלץ 10 — תמונת לקוח (אותה תמונה לשני הכרטיסים)
-buzaglo-4.jpg        <- בוזגלו 4 — PikiWiki 140016 Bitzaaron towers (CC BY 2.5)
+buzaglo-4.jpg        <- בוזגלו 4 — תמונת לקוח
 
 Preferred client replacements: JPG, landscape ~1600px wide.
 Sources: https://commons.wikimedia.org/
