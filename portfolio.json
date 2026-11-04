@@ -1,0 +1,14 @@
+{
+  "title": "Bamakor",
+  "description": "Marketing site for a Jerusalem property-management company, in Hebrew, English, and French, with service pages and quote flows.",
+  "status": "Production",
+  "visibility": true,
+  "featured": false,
+  "category": "Web",
+  "website": "https://www.bamakor.com",
+  "logo": "",
+  "cover": "",
+  "video": "",
+  "technologies": ["HTML", "CSS", "Vercel"],
+  "tags": ["marketing", "property"]
+}
