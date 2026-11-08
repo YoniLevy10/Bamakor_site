@@ -1,36 +1,46 @@
 User-agent: *
 Allow: /
 Disallow: /wp-admin/
+Disallow: /quadra/
 Disallow: /wp-login.php
 Disallow: /xmlrpc.php
 
 # Allow major AI crawlers for GEO / LLM discovery
 User-agent: GPTBot
 Allow: /
+Disallow: /quadra/
 
 User-agent: ChatGPT-User
 Allow: /
+Disallow: /quadra/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /quadra/
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /quadra/
 
 User-agent: ClaudeBot
 Allow: /
+Disallow: /quadra/
 
 User-agent: Claude-Web
 Allow: /
+Disallow: /quadra/
 
 User-agent: PerplexityBot
 Allow: /
+Disallow: /quadra/
 
 User-agent: Bytespider
 Allow: /
+Disallow: /quadra/
 
 User-agent: CCBot
 Allow: /
+Disallow: /quadra/
 
 Sitemap: https://www.bamakor.com/sitemap.xml
 # LLM context: https://www.bamakor.com/llms.txt

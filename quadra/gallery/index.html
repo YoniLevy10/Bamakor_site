@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>קוואדרה — גלריה</title>
+  <script>
+    (function () {
+      try {
+        var l = localStorage.getItem("quadra_lang") || "he";
+        var q = new URLSearchParams(location.search).get("lang");
+        if (q === "en" || q === "fr" || q === "he") l = q;
+        if (l !== "en" && l !== "fr") l = "he";
+        document.documentElement.lang = l;
+        document.documentElement.dir = l === "he" ? "rtl" : "ltr";
+      } catch (e) {}
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Frank+Ruhl+Libre:wght@500;700&display=swap">
+  <link rel="stylesheet" href="/quadra/assets/quadra.css">
+</head>
+<body data-page="gallery">
+  <div id="app"></div>
+  <noscript><p class="noscript">יש להפעיל JavaScript כדי לראות את מבנה האתר.</p></noscript>
+  <script src="/quadra/assets/content.js"></script>
+  <script src="/quadra/assets/quadra.js"></script>
+</body>
+</html>
