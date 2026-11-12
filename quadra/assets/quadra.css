@@ -357,11 +357,12 @@ html[dir="rtl"] .nav-drawer.is-open {
 }
 
 .hero .frame {
-  aspect-ratio: 1024 / 600;
+  /* Match original brochure slides (~660×461 / 825×461); never crop. */
+  aspect-ratio: 825 / 461;
   width: 100%;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  background: #171513;
+  background: #ebe7e0;
 }
 
 .hero .frame img {
@@ -369,7 +370,7 @@ html[dir="rtl"] .nav-drawer.is-open {
   height: 100%;
   object-fit: contain;
   object-position: center center;
-  background: #171513;
+  background: #ebe7e0;
 }
 
 .hero-controls {
@@ -696,17 +697,17 @@ html[dir="rtl"] .nav-drawer.is-open {
 }
 
 .gallery-layout .frame {
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 660 / 461;
   width: 100%;
-  background: #171513;
+  background: #ebe7e0;
 }
 
 .gallery-layout .frame img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center center;
-  background: #171513;
+  background: #ebe7e0;
 }
 
 .thumbs {
@@ -1039,7 +1040,7 @@ html[dir="rtl"] .nav-drawer.is-open {
   }
 
   .hero .frame {
-    aspect-ratio: 1024 / 600;
+    aspect-ratio: 825 / 461;
   }
 
   .hero-controls {
@@ -1121,7 +1122,7 @@ html[dir="rtl"] .nav-drawer.is-open {
   }
 
   .hero .frame {
-    aspect-ratio: 1024 / 600;
+    aspect-ratio: 825 / 461;
   }
 
   .gallery-layout .frame,

@@ -1,7 +1,7 @@
 /* Quadra — brochure content.
    Media lives under /quadra/media:
 
-   media/project/01.jpg … 08.jpg          homepage slides
+   media/project/01.jpg … 07.jpg          homepage slides (same order as quadrajerusalem)
    media/location/01.jpg                  location page
    media/apartments/01.jpg … 06.jpg       apartments page
    media/gallery/01.jpg … 07.jpg          gallery
@@ -22,7 +22,7 @@ window.QUADRA_CONTENT = {
     fr: "37, rue Mekor Chaim, Jérusalem, Israël 93465"
   },
   counts: {
-    projectSlides: 8,
+    projectSlides: 7,
     construction: 0,
     apartmentPhotos: 6,
     gallery: 7
