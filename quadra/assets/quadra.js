@@ -12,6 +12,7 @@
       gallery: "גלריה",
       contact: "צור קשר",
       langs: { he: "עברית", en: "English", fr: "Français" },
+      langLabel: "שפה",
       menu: "תפריט",
       skip: "דילוג לתוכן",
       draft: "טיוטת מבנה. שמים את הקבצים בתיקיית media לפי השם שמופיע על כל מסגרת.",
@@ -20,6 +21,8 @@
       construction: "תמונות מאתר הבנייה",
       constructionTitle: "תמונות מאתר הבנייה",
       close: "סגירה",
+      zoomHint: "לחיצה כפולה להגדלה",
+      zoomOpen: "הגדלת תוכנית",
       spec: "מפרט טכני (PDF)",
       specMissing: "הקובץ יתווסף",
       waiting: "ממתין לקובץ",
@@ -42,10 +45,10 @@
       name: "שם",
       addressField: "כתובת",
       send: "שליחה",
-      formNote: "בטיוטה הזו הטופס עדיין לא נשלח. הוא מוכן לחיבור כשהאתר יעלה.",
-      thanks: "תודה. בטיוטה הזו הפנייה נשארת במסך ולא נשלחת.",
+      formNote: "הטופס עדיין לא מחובר לשליחה. אפשר ליצור קשר בטלפון או במייל.",
+      thanks: "תודה. הפנייה נשמרה במסך — בינתיים אפשר ליצור קשר בטלפון או במייל.",
       required: "נא למלא שם ואימייל תקינים.",
-      disclaimer: "הדמיות ותוכניות יוצגו להמחשה בלבד לאחר העלאת החומר.",
+      disclaimer: "כל התמונות, התוכניות וההדמיות להמחשה בלבד.",
       slide: "שקופית",
       photo: "תמונה"
     },
@@ -57,6 +60,7 @@
       gallery: "Gallery",
       contact: "Contact Us",
       langs: { he: "עברית", en: "English", fr: "Français" },
+      langLabel: "Language",
       menu: "Menu",
       skip: "Skip to content",
       draft: "Structure draft. Add files under media using the name shown on each frame.",
@@ -65,6 +69,8 @@
       construction: "Pictures from the construction site",
       constructionTitle: "Construction site",
       close: "Close",
+      zoomHint: "Double-click to enlarge",
+      zoomOpen: "Enlarge plan",
       spec: "Technical specification (PDF)",
       specMissing: "The file will be added",
       waiting: "Waiting for file",
@@ -87,10 +93,10 @@
       name: "Name",
       addressField: "Address",
       send: "Send",
-      formNote: "This draft form is not sent yet. It is ready to connect when the site goes live.",
-      thanks: "Thank you. In this draft the inquiry stays on screen and is not sent.",
+      formNote: "The form is not connected for sending yet. Please reach us by phone or email.",
+      thanks: "Thank you. Your inquiry stays on screen for now — please reach us by phone or email.",
       required: "Please enter a name and a valid email.",
-      disclaimer: "Renderings and plans will be shown for illustration once the files are added.",
+      disclaimer: "All images, plans and simulations are for illustration purposes only.",
       slide: "Slide",
       photo: "Photo"
     },
@@ -102,6 +108,7 @@
       gallery: "Galerie photos",
       contact: "Contactez-nous",
       langs: { he: "עברית", en: "English", fr: "Français" },
+      langLabel: "Langue",
       menu: "Menu",
       skip: "Aller au contenu",
       draft: "Maquette de structure. Ajoutez les fichiers dans media selon le nom affiché sur chaque cadre.",
@@ -110,6 +117,8 @@
       construction: "Photos du chantier",
       constructionTitle: "Photos du chantier",
       close: "Fermer",
+      zoomHint: "Double-clic pour agrandir",
+      zoomOpen: "Agrandir le plan",
       spec: "Descriptif technique (PDF)",
       specMissing: "Le fichier sera ajouté",
       waiting: "En attente du fichier",
@@ -132,10 +141,10 @@
       name: "Nom",
       addressField: "Adresse",
       send: "Envoyer",
-      formNote: "Dans cette maquette, le formulaire n'est pas encore envoyé. Il est prêt à être branché.",
-      thanks: "Merci. Dans cette maquette, la demande reste à l'écran et n'est pas envoyée.",
+      formNote: "Le formulaire n'est pas encore connecté pour l'envoi. Contactez-nous par téléphone ou e-mail.",
+      thanks: "Merci. La demande reste à l'écran pour l'instant — contactez-nous par téléphone ou e-mail.",
       required: "Indiquez un nom et un e-mail valable.",
-      disclaimer: "Les visuels et les plans seront présentés à titre illustratif une fois les fichiers ajoutés.",
+      disclaimer: "Toutes les images, plans et simulations sont présentés à titre illustratif uniquement.",
       slide: "Diapositive",
       photo: "Photo"
     }
@@ -160,6 +169,7 @@
     floor: null,
     unit: null,
     lightbox: null,
+    planZoom: null,
     formSent: false,
     formError: false,
     form: { name: "", email: "", phone: "", address: "" }
@@ -264,14 +274,64 @@
     document.title = "Quadra — " + titles[page];
   }
 
+  function logoMark() {
+    var ns = "http://www.w3.org/2000/svg";
+    var svg = document.createElementNS(ns, "svg");
+    svg.setAttribute("class", "logo-mark");
+    svg.setAttribute("viewBox", "0 0 40 40");
+    svg.setAttribute("aria-hidden", "true");
+    var circles = [
+      [13, 13], [27, 13], [13, 27], [27, 27]
+    ];
+    circles.forEach(function (point) {
+      var c = document.createElementNS(ns, "circle");
+      c.setAttribute("cx", String(point[0]));
+      c.setAttribute("cy", String(point[1]));
+      c.setAttribute("r", "9");
+      c.setAttribute("fill", "none");
+      c.setAttribute("stroke", "currentColor");
+      c.setAttribute("stroke-width", "1.6");
+      svg.appendChild(c);
+    });
+    var star = document.createElementNS(ns, "path");
+    star.setAttribute("d", "M20 12.2c1.4 2.4 3.4 4.4 5.8 5.8-2.4 1.4-4.4 3.4-5.8 5.8-1.4-2.4-3.4-4.4-5.8-5.8 2.4-1.4 4.4-3.4 5.8-5.8z");
+    star.setAttribute("fill", "currentColor");
+    svg.appendChild(star);
+    return svg;
+  }
+
   function header() {
     var headerNode = el("header", "site-header");
     if (content.draft) headerNode.append(el("div", "draft", t().draft));
     var bar = el("div", "bar");
     var logo = el("a", "logo");
     logo.href = "/quadra/?lang=" + state.lang;
-    logo.append(el("span", "logo-en", "QUADRA"), el("span", "logo-he", "קוואדרה"));
+    var logoText = el("span", "logo-text");
+    logoText.append(el("span", "logo-en", "QUADRA"), el("span", "logo-he", "קוואדרה"));
+    logo.append(logoMark(), logoText);
+    var menu = button("menu-btn", "menu");
+    menu.setAttribute("aria-expanded", state.menu ? "true" : "false");
+    menu.setAttribute("aria-controls", "site-drawer");
+    menu.setAttribute("aria-label", state.menu ? t().close : t().menu);
+    menu.append(el("span"), el("span"), el("span"));
+    bar.append(logo, menu);
+
+    var backdrop = el("button", "nav-backdrop" + (state.menu ? " is-open" : ""));
+    backdrop.type = "button";
+    backdrop.setAttribute("data-action", "menu-close");
+    backdrop.setAttribute("aria-label", t().close);
+    backdrop.tabIndex = state.menu ? 0 : -1;
+
+    var drawer = el("div", "nav-drawer" + (state.menu ? " is-open" : ""));
+    drawer.id = "site-drawer";
+    drawer.setAttribute("role", "dialog");
+    drawer.setAttribute("aria-modal", "true");
+    drawer.setAttribute("aria-label", t().menu);
+    drawer.setAttribute("aria-hidden", state.menu ? "false" : "true");
+
     var langs = el("div", "langs");
+    langs.setAttribute("role", "group");
+    langs.setAttribute("aria-label", t().langLabel);
     ["he", "en", "fr"].forEach(function (code) {
       var langBtn = button(null, "lang", t().langs[code]);
       langBtn.setAttribute("data-lang", code);
@@ -279,10 +339,8 @@
       langBtn.setAttribute("lang", code);
       langs.append(langBtn);
     });
-    var menu = button("menu-btn", "menu", t().menu);
-    menu.setAttribute("aria-expanded", state.menu ? "true" : "false");
-    bar.append(logo, langs, menu);
-    var nav = el("nav", "nav" + (state.menu ? " is-open" : ""));
+
+    var nav = el("nav", "nav");
     nav.setAttribute("aria-label", t().menu);
     pages.forEach(function (item) {
       var link = el("a", null, t()[item[0]]);
@@ -290,8 +348,18 @@
       if (item[0] === page) link.setAttribute("aria-current", "page");
       nav.append(link);
     });
-    headerNode.append(bar, nav);
-    return headerNode;
+
+    drawer.append(langs, nav);
+    headerNode.append(bar);
+    var frag = document.createDocumentFragment();
+    frag.append(headerNode, backdrop, drawer);
+    return frag;
+  }
+
+  function pageHeading(title) {
+    var block = el("div", "page-heading");
+    block.append(el("p", "page-kicker", "QUADRA"), el("h1", "page-title", title));
+    return block;
   }
 
   function controls(prefix, index, total) {
@@ -317,23 +385,23 @@
   function projectPage() {
     var main = el("main", "wrap");
     main.id = "main";
-    main.append(el("h1", "page-title", t().project));
+    main.append(pageHeading(t().project));
     var hero = el("div", "hero");
     var src = media("project/" + pad(state.slide + 1) + ".jpg");
-    hero.append(
-      frame(src, t().slide + " " + (state.slide + 1)),
-      controls("slide", state.slide, content.counts.projectSlides)
-    );
+    var controlsRow = controls("slide", state.slide, content.counts.projectSlides);
+    controlsRow.className = "hero-controls";
+    hero.append(frame(src, t().slide + " " + (state.slide + 1)), controlsRow);
     var split = el("div", "split");
     var prose = el("div", "prose");
-    prose.append(el("p", "lede", content.texts.project[state.lang]));
-    var side = el("aside", "side-card");
-    side.append(el("h2", null, t().constructionTitle));
-    var open = button("text-btn", "open-construction", t().construction);
-    var note = el("p", "file-note");
-    note.append(document.createTextNode(t().waiting + " "), el("code", null, "media/construction/01.jpg … " + pad(content.counts.construction) + ".jpg"));
-    side.append(open, note);
-    split.append(prose, side);
+    prose.append(el("p", null, content.texts.project[state.lang]));
+    split.append(prose);
+    if (content.counts.construction > 0) {
+      var side = el("aside", "side-card");
+      side.append(el("h2", null, t().constructionTitle));
+      var open = button("text-btn", "open-construction", t().construction);
+      side.append(open);
+      split.append(side);
+    }
     main.append(hero, split);
     return main;
   }
@@ -341,18 +409,18 @@
   function locationPage() {
     var main = el("main", "wrap");
     main.id = "main";
-    main.append(
-      el("h1", "page-title", t().location),
-      frame(media("location/01.jpg"), t().location),
-      el("p", "lede", content.texts.location[state.lang])
-    );
+    var visual = el("div", "hero");
+    visual.append(frame(media("location/01.jpg"), t().location));
+    var prose = el("div", "prose");
+    prose.append(el("p", null, content.texts.location[state.lang]));
+    main.append(pageHeading(t().location), visual, prose);
     return main;
   }
 
   function apartmentsPage() {
     var main = el("main", "wrap");
     main.id = "main";
-    main.append(el("h1", "page-title", t().apartments), el("p", "lede", content.texts.apartments[state.lang]));
+    main.append(pageHeading(t().apartments), el("p", "lede", content.texts.apartments[state.lang]));
     var row = el("div", "photo-row");
     for (var i = 1; i <= content.counts.apartmentPhotos; i += 1) {
       row.append(frame(media("apartments/" + pad(i) + ".jpg"), t().photo + " " + i));
@@ -361,7 +429,9 @@
     var link = el("a", "pdf-link", t().spec);
     link.href = media("spec.pdf");
     link.id = "spec-link";
-    spec.append(link, document.createTextNode(" · " + t().specMissing + " "), el("code", null, "media/spec.pdf"));
+    link.target = "_blank";
+    link.rel = "noopener";
+    spec.append(link);
     main.append(row, spec);
     return main;
   }
@@ -371,7 +441,7 @@
     main.id = "main";
     var model = buildings();
     main.append(
-      el("h1", "page-title", t().plans),
+      pageHeading(t().plans),
       el("p", "lede", unitCount() + " " + t().unitsLabel + ". " + t().plansIntro)
     );
     var layout = el("div", "plans");
@@ -426,7 +496,16 @@
       title = t().building + " " + state.building + " · " + floorLabel(state.floor);
       caption = title;
     }
-    stage.append(el("h2", null, title), frame(src, caption));
+    var planFrame = frame(src, caption);
+    planFrame.classList.add("is-zoomable");
+    planFrame.title = t().zoomHint;
+    planFrame.setAttribute("role", "button");
+    planFrame.setAttribute("tabindex", "0");
+    planFrame.setAttribute("aria-label", t().zoomOpen + ": " + caption);
+    planFrame.setAttribute("data-plan-zoom", "true");
+    planFrame.setAttribute("data-src", src);
+    planFrame.setAttribute("data-caption", caption);
+    stage.append(el("h2", null, title), planFrame);
     layout.append(tree, stage);
     main.append(layout);
     return main;
@@ -437,10 +516,13 @@
     main.id = "main";
     var total = content.counts.gallery;
     var src = media("gallery/" + pad(state.gallery + 1) + ".jpg");
-    main.append(el("h1", "page-title", t().gallery));
+    main.append(pageHeading(t().gallery));
     var layout = el("div", "gallery-layout");
     var primary = el("div");
-    primary.append(frame(src, t().photo + " " + (state.gallery + 1)), controls("gallery", state.gallery, total));
+    var galleryControls = controls("gallery", state.gallery, total);
+    galleryControls.className = "hero-controls";
+    primary.className = "hero";
+    primary.append(frame(src, t().photo + " " + (state.gallery + 1)), galleryControls);
     var thumbs = el("div", "thumbs");
     for (var i = 0; i < total; i += 1) {
       var thumbBtn = button("thumb", "gallery-goto");
@@ -466,7 +548,7 @@
   function contactPage() {
     var main = el("main", "wrap");
     main.id = "main";
-    main.append(el("h1", "page-title", t().contact));
+    main.append(pageHeading(t().contact));
     var layout = el("div", "contact-layout");
     var card = el("section", "contact-card");
     card.append(el("h2", null, t().address));
@@ -570,6 +652,38 @@
     return dialog;
   }
 
+  function planZoom() {
+    if (!state.planZoom) return null;
+    var dialog = document.createElement("dialog");
+    dialog.className = "plan-zoom";
+    var box = el("div", "plan-zoom-card");
+    var bar = el("div", "plan-zoom-bar");
+    bar.append(el("strong", null, state.planZoom.caption));
+    var close = button("text-btn", "close-plan-zoom", t().close);
+    bar.append(close);
+    var imgWrap = el("div", "plan-zoom-stage");
+    var img = document.createElement("img");
+    img.src = state.planZoom.src;
+    img.alt = state.planZoom.caption;
+    img.decoding = "async";
+    imgWrap.append(img);
+    box.append(bar, imgWrap);
+    dialog.append(box);
+    dialog.addEventListener("close", function () {
+      state.planZoom = null;
+    });
+    dialog.addEventListener("click", function (event) {
+      if (event.target === dialog || event.target === imgWrap) dialog.close();
+    });
+    return dialog;
+  }
+
+  function syncHeaderVar() {
+    var headerNode = document.querySelector(".site-header");
+    if (!headerNode) return;
+    document.documentElement.style.setProperty("--header", Math.ceil(headerNode.getBoundingClientRect().height) + "px");
+  }
+
   function render() {
     var y = window.scrollY;
     applyLang();
@@ -584,14 +698,32 @@
       gallery: galleryPage,
       contact: contactPage
     }[page]();
+    document.body.classList.toggle("menu-open", state.menu);
     app.replaceChildren(header(), skip, view, footer());
     var dialog = lightbox();
     if (dialog) {
       app.append(dialog);
       dialog.showModal();
     }
+    var zoom = planZoom();
+    if (zoom) {
+      app.append(zoom);
+      zoom.showModal();
+    }
+    syncHeaderVar();
     window.scrollTo(0, y);
   }
+
+  function openPlanZoom(node) {
+    if (!node || !node.classList.contains("is-ready")) return;
+    state.planZoom = {
+      src: node.getAttribute("data-src"),
+      caption: node.getAttribute("data-caption") || ""
+    };
+    render();
+  }
+
+  window.addEventListener("resize", syncHeaderVar);
 
   function startSlider() {
     clearInterval(sliderTimer);
@@ -618,6 +750,11 @@
       render();
       return;
     }
+    if (action === "menu-close") {
+      state.menu = false;
+      render();
+      return;
+    }
     if (action === "slide-prev" || action === "slide-next" || action === "slide-goto") {
       var total = content.counts.projectSlides;
       if (action === "slide-goto") state.slide = Number(target.getAttribute("data-index"));
@@ -640,9 +777,15 @@
       return;
     }
     if (action === "close-lightbox") {
-      var dialog = app.querySelector("dialog");
+      var dialog = app.querySelector("dialog.lightbox");
       if (dialog) dialog.close();
       state.lightbox = null;
+      return;
+    }
+    if (action === "close-plan-zoom") {
+      var zoomDialog = app.querySelector("dialog.plan-zoom");
+      if (zoomDialog) zoomDialog.close();
+      state.planZoom = null;
       return;
     }
     if (action === "building") {
@@ -684,7 +827,25 @@
     render();
   });
 
+  document.addEventListener("dblclick", function (event) {
+    var target = event.target.closest("[data-plan-zoom]");
+    if (!target || !app.contains(target)) return;
+    event.preventDefault();
+    openPlanZoom(target);
+  });
+
   document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape" && state.menu) {
+      state.menu = false;
+      render();
+      return;
+    }
+    var zoomTarget = event.target.closest("[data-plan-zoom]");
+    if (zoomTarget && app.contains(zoomTarget) && (event.key === "Enter" || event.key === " ")) {
+      event.preventDefault();
+      openPlanZoom(zoomTarget);
+      return;
+    }
     if (event.key !== "ArrowLeft" && event.key !== "ArrowRight") return;
     if (event.target.closest("input, textarea")) return;
     var forward = state.lang === "he" ? event.key === "ArrowLeft" : event.key === "ArrowRight";
